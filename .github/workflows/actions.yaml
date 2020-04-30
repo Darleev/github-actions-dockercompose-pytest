@@ -10,12 +10,12 @@ jobs:
     - name: docker-compose up
       env:
         COMPOSE_INTERACTIVE_NO_CLI: 1
-      run: docker-compose up -d
+      run: sudo docker-compose up -d
     - name: Check running containers
-      run: docker-compose ps -a
+      run: ocker-compose ps -a
     - name: Check logs
       run: docker-compose logs app
     - name: Test with pytest
       env:
         COMPOSE_INTERACTIVE_NO_CLI: 1
-      run: docker-compose exec app pytest
+      run: sudo docker-compose exec app pytest
