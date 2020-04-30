@@ -4,15 +4,13 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     steps:
     - uses: actions/checkout@v2
     - name: docker-compose up
       env:
         COMPOSE_INTERACTIVE_NO_CLI: 1
       run: sudo docker-compose up -d
-    - name: SUDO EXPORT
-      run: sudo export COMPOSE_INTERACTIVE_NO_CLI=1
     - name: Check running containers
       run: sudo docker-compose ps -a
     - name: Check logs
